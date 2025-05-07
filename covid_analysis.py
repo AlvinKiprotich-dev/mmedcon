@@ -8,7 +8,6 @@ from sklearn.cluster import KMeans
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 
-
 # STEP 2: Fetch and clean COVID-19 data from API
 url = "https://disease.sh/v3/covid-19/countries"
 response = requests.get(url)
@@ -24,15 +23,11 @@ df = pd.json_normalize(data)
 # Keep relevant columns
 columns = ['country', 'cases', 'todayCases', 'deaths', 'todayDeaths', 'recovered', 'population']
 df = df[columns]
-
-# Drop missing values
 df = df.dropna()
 
 # Calculate mortality and recovery rates
 df['mortality_rate'] = df['deaths'] / df['cases']
 df['recovery_rate'] = df['recovered'] / df['cases']
-
-# Clean infinite or NaN values after division
 df = df.replace([float('inf'), -float('inf')], pd.NA).dropna()
 
 # Sort for reporting
@@ -55,7 +50,7 @@ plt.close()
 # --- Top 10 countries by total deaths ---
 top_deaths = df.nlargest(10, 'deaths')
 plt.figure(figsize=(12, 6))
-sns.barplot(data=top_cases, x='cases', y='country', palette='Blues_r', hue='country', legend=False)
+sns.barplot(data=top_deaths, x='deaths', y='country', palette='Reds_r', hue='country', legend=False)
 plt.title('Top 10 Countries by COVID-19 Deaths')
 plt.xlabel('Total Deaths')
 plt.ylabel('Country')
@@ -66,7 +61,7 @@ plt.close()
 # --- Top 10 countries by mortality rate ---
 top_mortality = df.nlargest(10, 'mortality_rate')
 plt.figure(figsize=(12, 6))
-sns.barplot(data=top_cases, x='cases', y='country', palette='Blues_r', hue='country', legend=False)
+sns.barplot(data=top_mortality, x='mortality_rate', y='country', palette='Greys', hue='country', legend=False)
 plt.title('Top 10 Countries by COVID-19 Mortality Rate')
 plt.xlabel('Mortality Rate')
 plt.ylabel('Country')
@@ -117,6 +112,6 @@ for cluster_id in sorted(df['risk_cluster'].unique()):
 - Mortality Rate: {avg_mortality}%
 - Recovery Rate: {avg_recovery}%
 - Example countries: {example_countries}...
-    """)
+""")
 
 print("✅ Analysis Complete. Images saved.")
