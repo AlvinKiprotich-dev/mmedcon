@@ -1,4 +1,4 @@
-# COVID-19 Global Dashboard set
+# COVID-19 Global Dashboard
 - Access web app from: [`site`](https://alvinkiprotich-dev-mmedcon-app-hdcbit.streamlit.app/)
 
 An interactive, data-driven dashboard for visualizing and analyzing global COVID-19 statistics using real-time API data. This project demonstrates my ability to work with public health data, clean and transform it, apply machine learning, and present insights through modern visual tools.
