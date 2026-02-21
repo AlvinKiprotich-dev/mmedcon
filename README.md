@@ -7,7 +7,7 @@ An interactive, data-driven dashboard for visualizing and analyzing global COVID
 
 ---
 
-##  Main Features
+##  Main Features .
 
 -  **Live API integration** for up-to-date global and per-country COVID-19 stats  
 -  **Bar charts** of top N countries by total cases  
