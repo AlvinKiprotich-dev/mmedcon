@@ -20,7 +20,6 @@ An interactive, data-driven dashboard for visualizing and analyzing global COVID
 ---
 
 ##  Sample Visualizations
-
 | Global Metrics                | Risk Clustering (KMeans)       |
 |------------------------------|--------------------------------|
 | ![Metrics](assets/metrics.png) | ![Clusters](assets/clusters.png) |
