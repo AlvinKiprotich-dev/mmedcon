@@ -1,4 +1,4 @@
-# COVID-19 Global Dashboard Site.
+# COVID-19 Global Dashboard Site
 
 - Access web app from: [`site`](https://alvinkiprotich-dev-mmedcon-app-hdcbit.streamlit.app/)
   
